@@ -3,11 +3,14 @@ module.exports = {
   env: {
     node: true,
     es2021: true,
+    jest: true
   },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'plugin:jest/recommended',
+    'plugin:jest/style'
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',
@@ -21,5 +24,6 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
+    'jest/require-to-throw-message': 'error',
   },
 };
