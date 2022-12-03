@@ -1,22 +1,4 @@
-# typescript-template
-
-Template using the following tools
-
-* node 16 (https://github.com/nodejs/release#release-schedule)
-* nvm (https://github.com/nvm-sh/nvm)
-* yarn (https://yarnpkg.com/)
-* typescript (https://www.typescriptlang.org/)
-* prettier (https://prettier.io/)
-* eslint (https://eslint.org/)
-* jest (https://jestjs.io/)
-* husky (https://typicode.github.io/husky/#/)
-* commitlint (https://commitlint.js.org/#/)
-* dependabot (https://docs.github.com/en/code-security/dependabot)
-* codeql (https://codeql.github.com/)
-
-Assumes that nvm and yarn are installed
-
-Assumes that Jetbrains Intellij (https://www.jetbrains.com/idea/) is the IDE
+# Advent of Code 2022
 
 ## Commands
 
