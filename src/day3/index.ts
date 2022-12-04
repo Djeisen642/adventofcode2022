@@ -1,3 +1,4 @@
+import { messages } from '@/utils/messages';
 import { readlines } from '@/utils/readlines';
 
 export async function dayThreePartOne(filePath: string): Promise<number> {
@@ -13,7 +14,7 @@ export async function dayThreePartOne(filePath: string): Promise<number> {
     const character = secondHalf
       .split('')
       .find((char) => firstHalfCharacters.has(char));
-    if (!character) throw new Error('Unexpected error');
+    if (!character) throw new Error(messages.UnexpectedError);
     prioritiesSum += characterToPriority(character);
   }
   return prioritiesSum;
@@ -36,7 +37,7 @@ export async function dayThreePartTwo(filePath: string): Promise<number> {
       const character = arrayOfCharacters.find((char) =>
         remainingAfterSecondLine.has(char)
       );
-      if (!character) throw new Error('Unexpected error');
+      if (!character) throw new Error(messages.UnexpectedError);
       badgeSum += characterToPriority(character);
     }
     lineNumber++;

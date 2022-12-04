@@ -1,3 +1,4 @@
+import { messages } from '@/utils/messages';
 import { readlines } from '@/utils/readlines';
 
 enum theirStrategy {
@@ -66,7 +67,8 @@ export async function dayTwoPartTwo(filePath: string): Promise<number> {
       theirStrategy,
       yourStrategy
     ];
-    if (!theyPick || !yourStrategyPick) throw new Error('Unexpected error');
+    if (!theyPick || !yourStrategyPick)
+      throw new Error(messages.UnexpectedError);
 
     const yourChoice = results[yourStrategyPick][theyPick];
     totalScore +=
