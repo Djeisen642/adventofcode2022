@@ -25,6 +25,7 @@
 
 # Generated files
 .idea/**/contentModel.xml
+.idea/**/git_toolbox_prj.xml
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
