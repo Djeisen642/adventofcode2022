@@ -1,54 +1,55 @@
 import { join } from 'path';
 
-import { dayFourPartOne, dayFourPartTwo } from '@/day4';
+import { dayFivePartOne, dayFivePartTwo } from '@/day5/index';
 
-describe('day4', () => {
+describe('day5', () => {
   describe('part1', () => {
     it('should match the test result', async () => {
-      const answer = 2;
+      const answer = 'CMZ';
       const filePath = join(__dirname, 'input.example1.txt');
 
-      const result = await dayFourPartOne(filePath);
+      const result = await dayFivePartOne(filePath);
       expect(result).toBe(answer);
     });
 
     it('should match the second test result', async () => {
-      const answer = 3;
+      const answer = 'CDBG';
       const filePath = join(__dirname, 'input.example2.txt');
 
-      const result = await dayFourPartOne(filePath);
+      const result = await dayFivePartOne(filePath);
       expect(result).toBe(answer);
     });
 
     it('should run with the real deal', async () => {
       const filePath = join(__dirname, 'input.txt');
-      const result = await dayFourPartOne(filePath);
+      const result = await dayFivePartOne(filePath);
       expect(result).toBeTruthy();
-      console.log('day4 part1 result: ', result);
+      console.log('day5 part1 result: ', result);
     });
   });
+
   describe('part2', () => {
     it('should match the test result', async () => {
-      const answer = 4;
+      const answer = 'MCD';
       const filePath = join(__dirname, 'input.example1.txt');
 
-      const result = await dayFourPartTwo(filePath);
+      const result = await dayFivePartTwo(filePath);
       expect(result).toBe(answer);
     });
 
     it('should match the second test result', async () => {
-      const answer = 5;
+      const answer = 'DCAG';
       const filePath = join(__dirname, 'input.example2.txt');
 
-      const result = await dayFourPartTwo(filePath);
+      const result = await dayFivePartTwo(filePath);
       expect(result).toBe(answer);
     });
 
     it('should run with the real deal', async () => {
       const filePath = join(__dirname, 'input.txt');
-      const result = await dayFourPartTwo(filePath);
+      const result = await dayFivePartTwo(filePath);
       expect(result).toBeTruthy();
-      console.log('day4 part2 result: ', result);
+      console.log('day5 part2 result: ', result);
     });
   });
 });
