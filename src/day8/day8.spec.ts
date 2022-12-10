@@ -41,7 +41,7 @@ describe('day8', () => {
       const filePath = join(__dirname, 'input.txt');
       const result = await dayEightPartTwo(filePath);
       expect(result).toBeTruthy();
-      console.log('day7 part2 result: ', result);
+      console.log('day8 part2 result: ', result);
     });
   });
 });
