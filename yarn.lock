@@ -1597,6 +1597,7 @@ __metadata:
     pinst: ^3.0.0
     prettier: ^2.8.1
     prettier-config-standard: ^5.0.0
+    simple-node-logger: ^21.8.12
     ts-jest: ^29.0.3
     ts-node: ^10.9.1
     typescript: ^4.9.4
@@ -4026,7 +4027,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.21, lodash@npm:^4.17.15":
+"lodash@npm:4.17.21, lodash@npm:^4.17.12, lodash@npm:^4.17.15":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -4281,6 +4282,13 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: a96865108c6c3b1b8e1d5e9f11843de1e077e57737602de1b82030815f311be11f96f09cce59bd5b903d0b29834733e5313f9301e3ed6d6f6fba2eae0df4298f
+  languageName: node
+  linkType: hard
+
+"moment@npm:^2.20.1":
+  version: 2.29.4
+  resolution: "moment@npm:2.29.4"
+  checksum: 0ec3f9c2bcba38dc2451b1daed5daded747f17610b92427bebe1d08d48d8b7bdd8d9197500b072d14e326dd0ccf3e326b9e3d07c5895d3d49e39b6803b76e80e
   languageName: node
   linkType: hard
 
@@ -4947,6 +4955,16 @@ __metadata:
   version: 3.0.7
   resolution: "signal-exit@npm:3.0.7"
   checksum: a2f098f247adc367dffc27845853e9959b9e88b01cb301658cfe4194352d8d2bb32e18467c786a7fe15f1d44b233ea35633d076d5e737870b7139949d1ab6318
+  languageName: node
+  linkType: hard
+
+"simple-node-logger@npm:^21.8.12":
+  version: 21.8.12
+  resolution: "simple-node-logger@npm:21.8.12"
+  dependencies:
+    lodash: ^4.17.12
+    moment: ^2.20.1
+  checksum: 49b147fdb6a692dcc9779f9e43ef162481fe14fa5a0210f6bc3f9ae65e104940307d6ac7057e28ba3b61a4965646b9e57cd849ebdaac158c0423f3327b939815
   languageName: node
   linkType: hard
 

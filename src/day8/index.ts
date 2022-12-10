@@ -1,5 +1,9 @@
+import { createSimpleLogger } from 'simple-node-logger';
+
 import { messages } from '@/utils/messages';
 import { readlines } from '@/utils/readlines';
+
+const logger = createSimpleLogger({ level: 'error' });
 
 async function getTrees(
   filePath: string
@@ -20,7 +24,7 @@ export async function dayEightPartOne(filePath: string): Promise<number> {
   let visibleTrees = 0;
 
   const addTree = (direction: string, row: number, column: number) => {
-    console.log(direction, row, column);
+    logger.info(`${direction} ${row} ${column}`);
     visibleTrees++;
   };
   for (let rowIndex = 0; rowIndex < rows; rowIndex++) {

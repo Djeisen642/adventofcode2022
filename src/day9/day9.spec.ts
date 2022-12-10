@@ -14,36 +14,51 @@ import {
 describe('day9', () => {
   describe('part1', () => {
     it('should get a list of commands', async () => {
-      const first: Command = { direction: Direction.RIGHT, distance: 4 };
-      const last: Command = { direction: Direction.RIGHT, distance: 2 };
+      const firstExpectedCommand: Command = {
+        direction: Direction.RIGHT,
+        distance: 4,
+      };
+      const lastExpectedCommand: Command = {
+        direction: Direction.RIGHT,
+        distance: 2,
+      };
       const filePath = join(__dirname, 'input.example1.txt');
 
-      const commands = await getCommands(filePath);
+      const commandIterator = getCommands(filePath);
 
-      expect(commands[0]).toEqual(first);
-      expect(commands[commands.length - 1]).toEqual(last);
+      let firstCommand;
+      let lastCommand;
+      for await (const command of commandIterator) {
+        if (!firstCommand) {
+          firstCommand = command;
+        }
+        lastCommand = command;
+      }
+
+      expect(firstCommand).toEqual(firstExpectedCommand);
+      expect(lastCommand).toEqual(lastExpectedCommand);
     });
     it('should move the head to the correct spot', async () => {
       const filePath = join(__dirname, 'input.example1.txt');
-      const commands = await getCommands(filePath);
+      const commands = getCommands(filePath);
 
       const iterator = moveHead(commands);
 
       let result;
-      for (const coordinate of iterator) {
+      for await (const coordinate of iterator) {
         result = coordinate;
       }
       expect(result).toEqual({ x: 2, y: 2 });
     });
     it('should move the tail to the correct spot', async () => {
       const filePath = join(__dirname, 'input.example1.txt');
-      const commands = await getCommands(filePath);
+      const commands = getCommands(filePath);
 
       const headIterator = moveHead(commands);
       const tailIterator = moveTail(headIterator);
 
       let result;
-      for (const coordinate of tailIterator) {
+      for await (const coordinate of tailIterator) {
         result = coordinate;
       }
       expect(result).toEqual({ x: 1, y: 2 });
@@ -75,38 +90,38 @@ describe('day9', () => {
   describe('dayNinePartTwo', () => {
     it('should move the head to the correct spot', async () => {
       const filePath = join(__dirname, 'input.example3.txt');
-      const commands = await getCommands(filePath);
+      const commands = getCommands(filePath);
 
       const iterator = moveHead(commands);
 
       let result;
-      for (const coordinate of iterator) {
+      for await (const coordinate of iterator) {
         result = coordinate;
       }
       expect(result).toEqual({ x: -11, y: 15 });
     });
     it('should move the tail to the correct spot', async () => {
       const filePath = join(__dirname, 'input.example1.txt');
-      const commands = await getCommands(filePath);
+      const commands = getCommands(filePath);
 
       const headIterator = moveHead(commands);
       const tailIterator = moveTailV2(headIterator, 1);
 
       let result;
-      for (const coordinate of tailIterator) {
+      for await (const coordinate of tailIterator) {
         result = coordinate;
       }
       expect(result).toEqual({ x: 1, y: 2 });
     });
     it('should move the tail on a larger example to the correct spot', async () => {
       const filePath = join(__dirname, 'input.example3.txt');
-      const commands = await getCommands(filePath);
+      const commands = getCommands(filePath);
 
       const headIterator = moveHead(commands);
       const tailIterator = moveTailV2(headIterator, 9);
 
       let result;
-      for (const coordinate of tailIterator) {
+      for await (const coordinate of tailIterator) {
         result = coordinate;
       }
       expect(result).toEqual({ x: -11, y: 6 });

@@ -19,13 +19,13 @@ export type Command = {
 };
 
 export async function dayNinePartOne(filePath: string): Promise<number> {
-  const commands: Command[] = await getCommands(filePath);
+  const commands = getCommands(filePath);
 
   const headMoveIterator = moveHead(commands);
   const tailMoveIterator = moveTail(headMoveIterator);
 
   const tailCoordinateSet = new Set();
-  for (const coordinate of tailMoveIterator) {
+  for await (const coordinate of tailMoveIterator) {
     tailCoordinateSet.add(JSON.stringify(coordinate));
   }
   return tailCoordinateSet.size;
@@ -33,22 +33,22 @@ export async function dayNinePartOne(filePath: string): Promise<number> {
 
 export async function dayNinePartTwo(filePath: string): Promise<number> {
   const knots = 10;
-  const commands: Command[] = await getCommands(filePath);
+  const commands = getCommands(filePath);
 
   const headMoveIterator = moveHead(commands);
   const tailMoveIterator = moveTailV2(headMoveIterator, knots - 1); // subtract the head knot
 
   const tailCoordinateSet = new Set();
-  for (const coordinate of tailMoveIterator) {
+  for await (const coordinate of tailMoveIterator) {
     tailCoordinateSet.add(JSON.stringify(coordinate));
   }
   return tailCoordinateSet.size;
 }
 
 export function moveTailV2(
-  headMoveIterator: Generator<Coordinate>,
+  headMoveIterator: AsyncGenerator<Coordinate>,
   knots: number
-): Generator<Coordinate> {
+): AsyncGenerator<Coordinate> {
   let currentIterator = headMoveIterator;
   for (let i = 0; i < knots; i++) {
     currentIterator = moveKnot(currentIterator);
@@ -56,11 +56,11 @@ export function moveTailV2(
   return currentIterator;
 }
 
-export function* moveKnot(
-  previousKnotIterator: Generator<Coordinate>
-): Generator<Coordinate> {
+export async function* moveKnot(
+  previousKnotIterator: AsyncGenerator<Coordinate>
+): AsyncGenerator<Coordinate> {
   const thisKnotCoordinate: Coordinate = { x: 0, y: 0 };
-  for (const prevKnotCoordinate of previousKnotIterator) {
+  for await (const prevKnotCoordinate of previousKnotIterator) {
     if (Math.abs(prevKnotCoordinate.x - thisKnotCoordinate.x) === 2) {
       const xDirection = prevKnotCoordinate.x > thisKnotCoordinate.x ? 1 : -1;
       thisKnotCoordinate.x += xDirection;
@@ -81,14 +81,16 @@ export function* moveKnot(
 }
 
 export function moveTail(
-  headMoveIterator: Generator<Coordinate>
-): Generator<Coordinate> {
+  headMoveIterator: AsyncGenerator<Coordinate>
+): AsyncGenerator<Coordinate> {
   return moveKnot(headMoveIterator);
 }
 
-export function* moveHead(commands: Command[]): Generator<Coordinate> {
+export async function* moveHead(
+  commands: AsyncGenerator<Command>
+): AsyncGenerator<Coordinate> {
   const head: Coordinate = { x: 0, y: 0 };
-  for (const command of commands) {
+  for await (const command of commands) {
     for (let i = 0; i < command.distance; i++) {
       switch (command.direction) {
         case Direction.UP:
@@ -109,15 +111,13 @@ export function* moveHead(commands: Command[]): Generator<Coordinate> {
   }
 }
 
-export async function getCommands(filePath: string) {
-  const commands: Command[] = [];
+export async function* getCommands(filePath: string): AsyncGenerator<Command> {
   for await (const line of readlines(filePath)) {
     const [direction, distanceString] = line.split(' ');
     if (!direction || !distanceString)
       throw new Error(messages.UnexpectedError);
     const distance = +distanceString;
     if (isNaN(distance)) throw new Error(messages.UnexpectedError);
-    commands.push({ direction: direction as Direction, distance });
+    yield { direction: direction as Direction, distance };
   }
-  return commands;
 }
