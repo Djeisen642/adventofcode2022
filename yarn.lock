@@ -1590,7 +1590,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.46.0
     eslint: ^8.29.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-jest: ^27.1.6
+    eslint-plugin-jest: ^27.2.0
     eslint-plugin-prettier: ^4.2.1
     husky: ^8.0.2
     jest: ^29.3.1
@@ -2436,9 +2436,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^27.1.6":
-  version: 27.1.6
-  resolution: "eslint-plugin-jest@npm:27.1.6"
+"eslint-plugin-jest@npm:^27.2.0":
+  version: 27.2.0
+  resolution: "eslint-plugin-jest@npm:27.2.0"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -2449,7 +2449,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 5b1640b5d575f0d5e27da8ef8cb3110a29f94ebd50ae51edc5ea34c1054f5dcf305416865b2919ac424bc02c4569848bbe7fd2c86e7e1aff23e77f1ff9ef7dfd
+  checksum: 83554bb8eed289f903e2e03871a42a9b7b37b5e443d4a1501a42e004db49cddad894592ccec9840221b412ea3d2388428a1b11938031e5628d21c5a3210f1240
   languageName: node
   linkType: hard
 
