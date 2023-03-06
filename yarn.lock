@@ -1291,10 +1291,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.11.13":
-  version: 18.11.13
-  resolution: "@types/node@npm:18.11.13"
-  checksum: b0c1aa3bd2f5df8240e61096a49d6d4be600109b824d23408ec4ba1ec057dc0c60588e09f73b8a60455ad26d367e9c5562fad8403099f885cbc7b4cace83ec4c
+"@types/node@npm:^18.14.6":
+  version: 18.14.6
+  resolution: "@types/node@npm:18.14.6"
+  checksum: 2f88f482cabadc6dbddd627a1674239e68c3c9beab56eb4ae2309fb96fd17fc3a509d99b0309bafe13b58529574f49ecf3a583f2ebe2896dd32fe4be436dc96e
   languageName: node
   linkType: hard
 
@@ -1585,7 +1585,7 @@ __metadata:
     "@trivago/prettier-plugin-sort-imports": ^4.0.0
     "@tsconfig/node16-strictest": ^1.0.4
     "@types/jest": ^29.2.4
-    "@types/node": ^18.11.13
+    "@types/node": ^18.14.6
     "@typescript-eslint/eslint-plugin": ^5.46.0
     "@typescript-eslint/parser": ^5.46.0
     eslint: ^8.29.0
